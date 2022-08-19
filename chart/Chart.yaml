@@ -1,0 +1,10 @@
+apiVersion: v2
+name: spire
+description: Configurable Deployment of Spire Server and Agents Wrapped Inside a Helm Chart.
+type: application
+version: 1.2.0-bb.1
+appVersion: 1.2.0
+annotations:
+  bigbang.dev/applicationVersions: |
+    - Spire Server: 1.2.0
+    - Spire Agent: 1.2.0
