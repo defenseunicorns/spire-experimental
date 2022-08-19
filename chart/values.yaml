@@ -25,3 +25,8 @@ server:
 
   bundle:
     nodePort: 32767
+
+  federatesWith: []
+    # - trustDomain: "other.domain" 
+    #   endpoint: https://host.k3d.internal:8443
+    #   spiffe: spiffe://other.domain/spire/server
