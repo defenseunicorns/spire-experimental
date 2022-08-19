@@ -12,7 +12,7 @@ data:
       server_port = "8081"
       socket_path = "/run/secrets/workload-spiffe-uds/socket"
       trust_bundle_path = "/run/spire/bundle/root-cert.pem"
-      trust_domain = "bigbang.dev"
+      trust_domain = "{{ .Values.server.trustDomain }}"
     }
     plugins {
       NodeAttestor "k8s_psat" {

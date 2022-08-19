@@ -5,7 +5,7 @@ metadata:
   namespace: spire
 data:
   k8s-workload-registrar.conf: |
-    trust_domain = "bigbang.dev"
+    trust_domain = "{{ .Values.server.trustDomain }}"
     server_socket_path = "/run/spire/sockets/server.sock"
     cluster = "demo-cluster"
     mode = "crd"
