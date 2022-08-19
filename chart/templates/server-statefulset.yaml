@@ -41,6 +41,7 @@ spec:
             periodSeconds: 5
           ports:
             - containerPort: 8081
+            - containerPort: 8443
           volumeMounts:
             - name: spire-config
               mountPath: /run/spire/config

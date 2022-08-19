@@ -10,5 +10,10 @@ spec:
       port: 8081
       targetPort: 8081
       protocol: TCP
+    - name: http-bundle
+      port: 8443
+      targetPort: 8443
+      protocol: TCP
+      nodePort: {{ .Values.server.bundle.nodePort }}
   selector:
     app: spire-server

@@ -9,7 +9,7 @@ data:
       bind_address = "0.0.0.0"
       bind_port = "8081"
       socket_path = "/run/spire/sockets/server.sock"
-      trust_domain = "bigbang.dev"
+      trust_domain = {{ .Values.server.trustDomain }}
       data_dir = "/run/spire/data"
       log_level = "DEBUG"
       ca_key_type = "rsa-2048"
@@ -18,6 +18,12 @@ data:
         country = ["US"],
         organization = ["SPIFFE"],
         common_name = "",
+      }
+      federation {
+        bundle_endpoint {
+          address = "0.0.0.0"
+          port = 8443
+        }
       }
     }
     plugins {

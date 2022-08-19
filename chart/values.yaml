@@ -18,3 +18,10 @@
 # agent:
 #   # verification should be disabled in some environments, including Minikube
 #   kubeletSkipVerification: false
+
+
+server:
+  trustDomain: bigbang.dev
+
+  bundle:
+    nodePort: 32767
