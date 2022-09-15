@@ -18,7 +18,7 @@
 # agent:
 #   # verification should be disabled in some environments, including Minikube
 #   kubeletSkipVerification: false
-
+domain: bigbang.dev
 
 server:
   trustDomain: bigbang.dev
@@ -40,7 +40,7 @@ istio:
     gateways:
       - istio-system/passthrough
     hosts:
-      - spire.{{ .Values.hostname }}
+      - spire.{{ .Values.domain }}
     service: ""
     port: ""
     namespace: ""
