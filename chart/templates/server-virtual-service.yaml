@@ -13,14 +13,12 @@ spec:
     - {{ . }}
   {{- end}}
   tls:
-    - match:
-        - port: 8443
-          sniHosts:
-          {{- range .Values.istio.spire.hosts }}
-            - {{ . }}
-          {{- end}}
-      route:
-      - destination:
-          host: spire-server.spire.svc.cluster.local
-          port:
-            number: {{ .Values.server.service.port }}
+  - match:
+    - port: {{ .Values.server.service.port }}
+      sniHosts:
+      {{- range .Values.istio.spire.hosts }}
+        - {{ . }}
+      {{- end}}
+    route:
+    - destination:
+        host: spire-server.spire.svc.cluster.local
