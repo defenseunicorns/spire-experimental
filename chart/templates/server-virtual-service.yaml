@@ -17,7 +17,7 @@ spec:
     - port: {{ .Values.server.service.port }}
       sniHosts:
       {{- range .Values.istio.spire.hosts }}
-        - {{ . }}
+        - {{ tpl . $}}
       {{- end}}
     route:
     - destination:
