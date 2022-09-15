@@ -10,7 +10,7 @@ spec:
   {{- end}}
   gateways:
   {{- range .Values.istio.spire.gateways }}
-    - {{- tpl . $}}
+    - {{ . }}
   {{- end}}
   http:
   - route:
