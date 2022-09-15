@@ -4,16 +4,18 @@ metadata:
   name: spire-server
   namespace: spire
 spec:
-  type: NodePort
+  type: {{ .Values.server.service.type }}
   ports:
     - name: grpc
       port: 8081
       targetPort: 8081
       protocol: TCP
     - name: http-bundle
-      port: 8443
+      port: {{ .Values.server.service.port }}
       targetPort: 8443
       protocol: TCP
+      {{- if eq .Values.server.service.type "NodePort" -}}
       nodePort: {{ .Values.server.bundle.nodePort }}
+      {{ end }}
   selector:
     app: spire-server

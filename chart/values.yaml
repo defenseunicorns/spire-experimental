@@ -31,6 +31,10 @@ server:
     #   endpoint: https://host.k3d.internal:8443
     #   spiffe: spiffe://other.domain/spire/server
 
+  service:
+    type: ClusterIP
+    port: 8443
+
 istio: 
   spire:
     # Toggle vs creation

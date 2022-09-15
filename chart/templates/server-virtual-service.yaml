@@ -17,4 +17,4 @@ spec:
     - destination:
         host: spire-server.spire.svc.cluster.local
         port:
-          number: 8443
+          number: {{ .Values.server.service.port }}
