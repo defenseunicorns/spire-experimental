@@ -6,11 +6,11 @@ metadata:
 spec:
   hosts:
   {{- range .Values.istio.spire.hosts }}
-    - {{ . }}
+    - {{ tpl . $}}
   {{- end}}
   gateways:
   {{- range .Values.istio.spire.gateways }}
-    - {{ . }}
+    - {{- tpl . $}}
   {{- end}}
   http:
   - route:
