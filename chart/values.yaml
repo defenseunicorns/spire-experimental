@@ -30,3 +30,18 @@ server:
     # - trustDomain: "other.domain" 
     #   endpoint: https://host.k3d.internal:8443
     #   spiffe: spiffe://other.domain/spire/server
+
+istio: 
+  spire:
+    # Toggle vs creation
+    enabled: true
+    annotations: {}
+    labels: {}
+    gateways:
+      - istio-system/passthrough
+    hosts:
+      - spire.{{ .Values.hostname }}
+    service: ""
+    port: ""
+    namespace: ""
+        

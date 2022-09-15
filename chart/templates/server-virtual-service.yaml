@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: spire-virtual-service
+  namespace: spire
+spec:
+  hosts:
+  {{- range .Values.istio.spire.hosts }}
+    - {{ . }}
+  {{- end}}
+  gateways:
+  {{- range .Values.istio.spire.gateways }}
+    - {{ . }}
+  {{- end}}
+  http:
+  - route:
+    - destination:
+        host: spire-server.spire.svc.cluster.local
+        port:
+          number: 8443
