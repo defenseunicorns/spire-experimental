@@ -14,7 +14,7 @@ spec:
       port: {{ .Values.server.service.port }}
       targetPort: 8443
       protocol: TCP
-      {{- if eq .Values.server.service.type "NodePort" -}}
+      {{ if eq .Values.server.service.type "NodePort" -}}
       nodePort: {{ .Values.server.bundle.nodePort }}
       {{ end }}
   selector:
