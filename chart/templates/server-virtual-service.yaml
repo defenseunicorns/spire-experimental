@@ -14,11 +14,13 @@ spec:
   {{- end}}
   tls:
   - match:
-    - port: {{ .Values.server.service.port }}
-      sniHosts:
+    - sniHosts:
       {{- range .Values.istio.spire.hosts }}
         - {{ tpl . $}}
       {{- end}}
     route:
     - destination:
         host: spire-server.spire.svc.cluster.local
+        port:
+          number: {{ .Values.server.service.port }}
+
